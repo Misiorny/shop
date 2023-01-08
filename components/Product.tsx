@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/legacy/image";
 import { NextSeo } from "next-seo";
 import { ZaisteReactMarkdown } from "./ZaisteReactMarkdown";
+import { MarkdownResult } from "../utils";
 
 interface ProductDetails {
   id: number;
@@ -11,7 +12,7 @@ interface ProductDetails {
   thumbnailUrl: string;
   thumbnailAlt: string;
   rating: number;
-  longDescription: string;
+  longDescription: MarkdownResult;
 }
 
 interface ProductProps {

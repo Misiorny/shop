@@ -2,6 +2,7 @@
 
 import { ProductDetails } from "../components/Product";
 import { useQuery } from "react-query";
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 const getProducts = async () => {
   const res = await fetch(`https://naszsklep-api.vercel.app/api/products/`);
@@ -31,6 +32,7 @@ const ProductsCSRPage = () => {
                 thumbnailUrl: product.image,
                 thumbnailAlt: product.title,
                 rating: product.rating.rate,
+                longDescription: product.longDescription,
               }}
             />
           </li>
@@ -48,6 +50,7 @@ interface StoreApiResponse {
   description: string;
   category: string;
   image: string;
+  longDescription: MDXRemoteSerializeResult;
   rating: {
     rate: number;
     count: number;
